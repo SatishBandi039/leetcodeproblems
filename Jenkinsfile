@@ -1,15 +1,28 @@
 pipeline {
     agent any  // Uses the Jenkins agent itself
+
+
        tools {
            jdk 'JAVA'  // Must be configured in Jenkins Global Tool Configuration
            maven 'M3'
        }
 
     stages {
-        stage('Build') {
+         stage('Checkout') {
             steps {
                 git 'https://github.com/SatishBandi039/leetcodeproblems.git'
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"  // Use "sh" in Linux container // Use "bat" in windows container
+                }
+         }
+        stage('Build') {
+            steps {
+                // git 'https://github.com/SatishBandi039/leetcodeproblems.git'
+                sh "mvn -B clean package"  // Use "sh" in Linux container // Use "bat" in windows container
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+                junit '**/target/surefire-reports/TEST-*.xml' // Publish JUnit results
             }
             post {
                 success {
