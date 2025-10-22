@@ -1,8 +1,9 @@
 pipeline {
-     tools {
-            jdk 'JAVA'  // Must be configured in Jenkins Global Tool Configuration
-            maven 'M3'
-        }
+    agent any  // Uses the Jenkins agent itself
+       tools {
+           jdk 'JAVA'  // Must be configured in Jenkins Global Tool Configuration
+           maven 'M3'
+       }
 
     stages {
         stage('Build') {
