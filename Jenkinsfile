@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages {
+        agent{
+            docker{
+                image 'amazoncorretto:17'
+                 args  'C:\Users\HP\.m2'  // Only needed if you want Maven cache persistence
+            }
+        }
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
