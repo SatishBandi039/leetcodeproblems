@@ -1,14 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image 'amazoncorretto:17'
-            args '-v c:/program files/amazon corretto' // Correct Docker volume format for Maven cache persistence
+     tools {
+            jdk 'JAVA'  // Must be configured in Jenkins Global Tool Configuration
+            maven 'M3'
         }
-    }
-
-    tools {
-        maven "M3"
-    }
 
     stages {
         stage('Build') {
