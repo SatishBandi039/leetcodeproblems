@@ -1,6 +1,6 @@
 package org.example;
 
-import jdk.internal.joptsimple.internal.Strings;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class Test2 {
 
-    public static void main(Strings[] args){
+    public static void main(String[] args){
 
         String[] fruits = {"Mango", "Banana", "Mango", "Apples", "Berries"};
 
