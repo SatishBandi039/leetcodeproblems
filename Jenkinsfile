@@ -1,6 +1,11 @@
 pipeline {
-    agent any  // Uses the Jenkins agent itself
-
+    // agent any  // Uses the Jenkins agent itself
+        agent {
+          docker {
+            image 'jenkins-windows-java-maven'
+            args '--isolation=process'
+          }
+        }
 
        tools {
            jdk 'JAVA'  // Must be configured in Jenkins Global Tool Configuration
