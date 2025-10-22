@@ -3,7 +3,6 @@ pipeline {
         agent {
           docker {
             image 'jenkins-windows-java-maven'
-            args '--isolation=process'
           }
         }
 
