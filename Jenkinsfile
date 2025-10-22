@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'amazoncorretto:17'
-            args '-v C:/Program Files/Amazon Corretto' // Correct Docker volume format for Maven cache persistence
+            args '-v c:/program files/amazon corretto' // Correct Docker volume format for Maven cache persistence
         }
     }
 
