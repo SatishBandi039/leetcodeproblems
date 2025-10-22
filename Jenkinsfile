@@ -21,12 +21,12 @@ pipeline {
         stage('Build') {
             steps {
                 // git 'https://github.com/SatishBandi039/leetcodeproblems.git'
-                sh "mvn -B clean package"  // Use "sh" in Linux container // Use "bat" in windows container
+                bat "mvn -B clean package"  // Use "sh" in Linux container // Use "bat" in windows container
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
                 junit '**/target/surefire-reports/TEST-*.xml' // Publish JUnit results
             }
             post {
